@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* Header Styling */
+header {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 1.5s; /* Fade-in animation */
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #4e44c8;
+    padding: 1rem 0;
+    animation: slideDown 1.5s; /* Slide down animation */
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, color 0.3s; /* Hover effect for scaling and color change */
+}
+
+nav a:hover {
+    transform: scale(1.1);
+    text-decoration: underline;
+}
+
+nav a.active {
+    color: #ffdc00;
+    text-decoration: underline;
+}
+
+/* Main Content Area Styling */
+main {
+    padding: 2rem;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 3rem;
+    padding: 3rem 0;
+}
+
+/* Booking Form Styling */
+.booking-form {
+    background-color: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s; /* Hover effect to slightly scale the form */
+}
+
+.booking-form:hover {
+    transform: scale(1.02); /* Hover effect */
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form button {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Dropdown (Select) Styling */
+.booking-form select {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+/* Button Styling */
+.booking-form button {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.booking-form button:hover {
+    background-color: #4e44c8;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #6c5ce7;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    animation: fadeIn 2s; /* Fade-in animation */
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    .booking-form {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form button {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hacker Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hacker Matrix Background */
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1000x1000/0f0f0f/00ff00?text=Hacker+Matrix') repeat;
+            background-size: 100px 100px;
+            animation: matrixAnimation 1.5s infinite linear;
+        }
+
+        @keyframes matrixAnimation {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+
+        /* Header Styling */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #00ff00;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        header .cta-button {
+            padding: 15px 40px;
+            background-color: #00ff00;
+            border: none;
+            color: black;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        header .cta-button:hover {
+            background-color: #00cc00;
+        }
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: #111;
+            padding: 1rem 3rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00cc00;
+        }
+
+        nav .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        nav .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 5%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .course-item {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .course-item:hover {
+            background-color: #444;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+
+            nav .menu-toggle {
+                display: flex;
+            }
+
+            nav a {
+                padding: 15px 0;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .booking-form {
+                width: 90%;
+            }
+
+            .course-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+
+            .course-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sound Control */
+        .sound-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00ff00;
+            color: black;
+            padding: 10px 20px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .sound-control:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animation (Matrix effect) -->
+    <div class="matrix-bg"></div>
+
+    <!-- Background Sound Player -->
+    <audio id="background-sound" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Sound Control Button -->
+    <button class="sound-control" id="sound-control">Mute Sound</button>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My Hacker Profile</h1>
+        <p>Unraveling the secrets of the digital world</p>
+        <a href="#booking" class="cta-button">Book Your Hacker Course Now</a>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#profile">Profile</a>
+        <a href="#courses">Courses</a>
+        <a href="#booking">Booking</a>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main>
+        <section id="profile" class="section">
+            <h2>About Me</h2>
+            <p>Hello! My name is [Your Name]. I am passionate about technology, cybersecurity, and hacking. I offer courses to help individuals become better at digital security, penetration testing, and more. Dive into the world of hacking!</p>
+        </section>
+
+        <section id="courses" class="section">
+            <h2>Available Courses</h2>
+            <div class="course-list">
+                <div class="course-item">
+                    <h3>Basic Computer</h3>
+                    <p>Introductory course to mastering computer basics.</p>
+                </div>
+                <div class="course-item">
+                    <h3>WiFi Hacking</h3>
+                    <p>Learn how to secure and break WiFi networks.</p>
+                </div>
+                <div class="course-item">
+                    <h3>Complete Windows</h3>
+                    <p>Master Windows OS for everyday tasks and security.</p>
+                </div>
+                <div class="course-item">
+                    <h3>Complete Linux</h3>
+                    <p>Explore the power and flexibility of Linux.</p>
+                </div>
+                <div class="course-item">
+                    <h3>Hacking</h3>
+                    <p>Learn ethical hacking and penetration testing techniques.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="section">
+            <h2>Book Your Seat</h2>
+            <form class="booking-form" id="bookingForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="course">Select Course:</label>
+                <select id="course" name="course" required>
+                    <option value="basic_computer">Basic Computer</option>
+                    <option value="wifi_hacking">WiFi Hacking</option>
+                    <option value="complete_windows">Complete Windows</option>
+                    <option value="complete_linux">Complete Linux</option>
+                    <option value="hacking">Hacking</option>
+                </select>
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Play background sound when page loads
+        window.onload = function() {
+            const audioElement = document.getElementById("background-sound");
+            audioElement.play();
+        };
+
+        // Sound control functionality
+        const soundControlBtn = document.getElementById("sound-control");
+        const backgroundSound = document.getElementById("background-sound");
+
+        soundControlBtn.addEventListener("click", function() {
+            if (backgroundSound.paused) {
+                backgroundSound.play();
+                soundControlBtn.textContent = "Mute Sound";
+            } else {
+                backgroundSound.pause();
+                soundControlBtn.textContent = "Unmute Sound";
+            }
+        });
+
+        // Handle booking form
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedCourse = document.getElementById('course').value;
+            alert(`Your seat has been booked successfully for the ${selectedCourse.replace('_', ' ').toUpperCase()} course.`);
+        });
+    </script>
+
+</body>
+</html>
